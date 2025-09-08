@@ -1,0 +1,517 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Authentication Styles */
+.auth-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.auth-card {
+    background: white;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.auth-title {
+    text-align: center;
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 28px;
+}
+
+.tab-container {
+    display: flex;
+    margin-bottom: 30px;
+    border-bottom: 2px solid #f0f0f0;
+}
+
+.tab-btn {
+    flex: 1;
+    padding: 12px;
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+}
+
+.tab-btn.active {
+    color: #667eea;
+    border-bottom-color: #667eea;
+}
+
+.auth-form {
+    display: none;
+}
+
+.auth-form.active {
+    display: block;
+}
+
+.auth-form h2 {
+    color: #333;
+    margin-bottom: 25px;
+    text-align: center;
+    font-size: 22px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #f0f0f0;
+    border-radius: 10px;
+    font-size: 16px;
+    transition: all 0.3s;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #667eea;
+}
+
+.auth-btn {
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.auth-btn:hover {
+    transform: translateY(-2px);
+}
+
+.error-message {
+    color: #e74c3c;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    min-height: 20px;
+}
+
+.success-message {
+    color: #27ae60;
+    text-align: center;
+    margin-top: 15px;
+    font-size: 14px;
+    min-height: 20px;
+}
+
+/* Calculator Styles */
+.calculator-container {
+    width: 100%;
+    max-width: 500px;
+    padding: 20px;
+}
+
+.header {
+    background: white;
+    border-radius: 15px 15px 0 0;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.user-info {
+    color: #333;
+    font-size: 16px;
+}
+
+.header-actions {
+    display: flex;
+    gap: 10px;
+}
+
+.header-btn {
+    padding: 8px 16px;
+    background: #667eea;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.header-btn:hover {
+    background: #5a67d8;
+    transform: translateY(-1px);
+}
+
+.logout-btn {
+    background: #e74c3c;
+}
+
+.logout-btn:hover {
+    background: #c0392b;
+}
+
+.calculator {
+    background: #2d3748;
+    border-radius: 0 0 15px 15px;
+    padding: 20px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+}
+
+.display {
+    background: #1a202c;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.expression {
+    color: #718096;
+    font-size: 18px;
+    min-height: 30px;
+    word-wrap: break-word;
+    margin-bottom: 10px;
+}
+
+.result {
+    color: white;
+    font-size: 36px;
+    font-weight: 600;
+    text-align: right;
+    word-wrap: break-word;
+}
+
+.buttons {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+}
+
+.btn {
+    padding: 20px;
+    background: #4a5568;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.btn:hover {
+    background: #5a6578;
+    transform: translateY(-2px);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn.number {
+    background: #2d3748;
+}
+
+.btn.number:hover {
+    background: #3d4758;
+}
+
+.btn.operator {
+    background: #805ad5;
+}
+
+.btn.operator:hover {
+    background: #9070e5;
+}
+
+.btn.function {
+    background: #3182ce;
+    font-size: 14px;
+}
+
+.btn.function:hover {
+    background: #4192de;
+}
+
+.btn.clear {
+    background: #e53e3e;
+}
+
+.btn.clear:hover {
+    background: #f54e4e;
+}
+
+.btn.equals {
+    background: #48bb78;
+    grid-row: span 2;
+}
+
+.btn.equals:hover {
+    background: #58cb88;
+}
+
+.btn.zero {
+    grid-column: span 1;
+}
+
+/* History Panel */
+.history-panel {
+    position: fixed;
+    right: -400px;
+    top: 0;
+    width: 400px;
+    height: 100vh;
+    background: white;
+    box-shadow: -5px 0 20px rgba(0, 0, 0, 0.2);
+    transition: right 0.3s;
+    overflow-y: auto;
+    z-index: 1000;
+}
+
+.history-panel.active {
+    right: 0;
+}
+
+.history-header {
+    background: #667eea;
+    color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
+.history-header h3 {
+    font-size: 20px;
+}
+
+.clear-history-btn {
+    padding: 8px 16px;
+    background: rgba(255, 255, 255, 0.2);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.clear-history-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.history-list {
+    padding: 20px;
+}
+
+.history-item {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 15px;
+    transition: all 0.3s;
+}
+
+.history-item:hover {
+    background: #e9ecef;
+    transform: translateX(-5px);
+}
+
+.history-expression {
+    color: #495057;
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.history-result {
+    color: #212529;
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.history-time {
+    color: #868e96;
+    font-size: 12px;
+    margin-top: 8px;
+}
+
+.empty-history {
+    text-align: center;
+    color: #868e96;
+    padding: 40px;
+    font-size: 16px;
+}
+
+/* Responsive Design */
+@media (max-width: 600px) {
+    .calculator-container {
+        padding: 10px;
+    }
+    
+    .buttons {
+        gap: 8px;
+    }
+    
+    .btn {
+        padding: 15px;
+        font-size: 16px;
+    }
+    
+    .btn.function {
+        font-size: 12px;
+    }
+    
+    .result {
+        font-size: 28px;
+    }
+    
+    .history-panel {
+        width: 100%;
+    }
+    
+    .auth-card {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 400px) {
+    .buttons {
+        grid-template-columns: repeat(5, 1fr);
+        gap: 5px;
+    }
+    
+    .btn {
+        padding: 12px;
+        font-size: 14px;
+    }
+    
+    .btn.function {
+        font-size: 10px;
+        padding: 12px 5px;
+    }
+}
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+/* ========================================= */
+/* ===== NEW: Landscape Mode Styling ===== */
+/* ========================================= */
+@media (orientation: landscape) and (max-height: 500px) {
+    body {
+        /* Allow scrolling on small landscape screens if needed */
+        align-items: flex-start;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .calculator-container {
+        max-width: 700px; /* Use more of the horizontal space */
+    }
+
+    .display {
+        min-height: 80px; /* Slightly shorter display */
+        padding: 10px 15px;
+    }
+
+    .result {
+        font-size: 32px;
+    }
+
+    .buttons {
+        /* Re-grid the buttons for a wide layout */
+        grid-template-columns: repeat(10, 1fr);
+        grid-template-rows: repeat(4, 1fr);
+        gap: 5px;
+    }
+
+    .btn {
+        padding: 10px 5px; /* Adjust padding for smaller buttons */
+        font-size: 12px;
+    }
+
+    /* Reset row/column spans from portrait mode */
+    .btn.equals {
+        grid-row: auto;
+    }
+
+    /* --- Button Placement for Landscape --- */
+    /* Using grid-area: row-start / col-start / row-end / col-end */
+
+    /* Row 1 */
+    .btn[onclick="appendFunction('sin(')"] { grid-area: 1 / 1; }
+    .btn[onclick="appendFunction('cos(')"] { grid-area: 1 / 2; }
+    .btn[onclick="appendFunction('tan(')"] { grid-area: 1 / 3; }
+    .btn[onclick="appendValue('(')"] { grid-area: 1 / 4; }
+    .btn[onclick="appendValue(')')"] { grid-area: 1 / 5; }
+    .btn.clear { grid-area: 1 / 8; }
+    .btn[onclick="deleteLast()"] { grid-area: 1 / 9 / 1 / 11; } /* Span 2 cols */
+    
+    /* Row 2 */
+    .btn[onclick="appendFunction('log(')"] { grid-area: 2 / 1; }
+    .btn[onclick="appendFunction('ln(')"] { grid-area: 2 / 2; }
+    .btn[onclick="appendOperator('^')"] { grid-area: 2 / 3; }
+    .btn[onclick="appendFunction('√(')"] { grid-area: 2 / 4; }
+    .btn[onclick="factorial()"] { grid-area: 2 / 5; }
+    .btn.number[onclick="appendValue('7')"] { grid-area: 2 / 8; }
+    .btn.number[onclick="appendValue('8')"] { grid-area: 2 / 9; }
+    .btn.number[onclick="appendValue('9')"] { grid-area: 2 / 10; }
+    .btn.operator[onclick="appendOperator('*')"] { grid-area: 2 / 7; }
+    
+    /* Row 3 */
+    .btn[onclick="appendValue('π')"] { grid-area: 3 / 1; }
+    .btn[onclick="appendValue('e')"] { grid-area: 3 / 2; }
+    .btn[onclick="toggleSign()"] { grid-area: 3 / 3; }
+    .btn[onclick="scientific()"] { grid-area: 3 / 4; }
+    .btn.operator[onclick="appendOperator('%')"] { grid-area: 3 / 5; }
+    .btn.number[onclick="appendValue('4')"] { grid-area: 3 / 8; }
+    .btn.number[onclick="appendValue('5')"] { grid-area: 3 / 9; }
+    .btn.number[onclick="appendValue('6')"] { grid-area: 3 / 10; }
+    .btn.operator[onclick="appendOperator('-')"] { grid-area: 3 / 7; }
+
+    /* Row 4 */
+    .btn[onclick="appendValue('00')"] { grid-area: 4 / 1; }
+    .btn.number.zero { grid-area: 4 / 2 / 4 / 4; } /* Span 2 cols */
+    .btn[onclick="appendValue('.')"] { grid-area: 4 / 4; }
+    .btn.equals { grid-area: 4 / 5; }
+    .btn.number[onclick="appendValue('1')"] { grid-area: 4 / 8; }
+    .btn.number[onclick="appendValue('2')"] { grid-area: 4 / 9; }
+    .btn.number[onclick="appendValue('3')"] { grid-area: 4 / 10; }
+    .btn.operator[onclick="appendOperator('+')"] { grid-area: 4 / 7; }
+    
+    /* Adjust history panel for landscape */
+    .history-panel {
+        width: 300px;
+        right: -300px;
+    }
+}
